@@ -1,0 +1,1510 @@
+
+# 2022-02-08 16:13:46.285282
++SHOW config_file
+
+# 2022-02-10 19:47:32.488008
++h
+
+# 2022-02-10 19:48:19.577363
++\?
+
+# 2022-02-10 20:21:35.108970
++crea
+
+# 2022-02-10 20:22:24.989891
++CREATE DATABASE PL1
+
+# 2022-02-10 20:27:37.128432
++pg_ctl reload -D "C:\Program Files\PostgreSQL\9.6\data"
+
+# 2022-02-10 20:59:33.813142
++ALTER SYSTEM SET log_statement = 'mod';
+
+# 2022-02-10 21:00:42.412293
++ALTER SYSTEM SET log_line_prefix = '%m [%p] Alba Calvo Herrero -  , Carlos Javier Prado Vázquez \n%r';
+
+# 2022-02-10 21:03:44.749636
++pg_reload_conf();
+
+# 2022-02-10 21:04:18.701380
++SIGHUP
+
+# 2022-02-10 21:05:25.862203
++SHOW pg_reload_conf()
+
+# 2022-02-10 21:05:32.886648
++SHOW pg_reload_conf
+
+# 2022-02-10 21:08:16.911950
++\df
+
+# 2022-02-10 21:08:46.986439
++\df pg_reload_conf()
+
+# 2022-02-10 21:11:34.637844
++sele
+
+# 2022-02-10 21:11:59.862181
++select pg_reload_conf();
+
+# 2022-02-10 21:15:07.443358
++ALTER SYSTEM SET log_line_prefix = '%m [%p] Alba Calvo Herrero -  , Carlos Javier Prado Vazquez %r';
+
+# 2022-02-10 21:15:16.134606
++select pg_reload_conf();
+
+# 2022-02-10 21:15:44.086336
++pgcli PL1
+
+# 2022-02-10 21:16:33.136448
++\connect pl1
+
+# 2022-02-10 22:15:09.557635
++los cousa
+
+# 2022-02-10 22:32:11.857811
++create table alumno(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-02-10 22:35:44.504681
++SHOW alumno
+
+# 2022-02-10 22:43:48.018059
++SELECT pg_relation_filenode('alumno'),pg_relation_filepath('alumno');
+
+# 2022-02-10 22:49:32.175790
++SELECT
++relname as alumno,
++pg_size_pretty(pg_total_relation_size(relid)) As size
+
+# 2022-02-10 22:51:31.377334
++pg_total_relation_size('alumno')
+
+# 2022-02-10 22:51:54.080735
++SELECT pg_total_relation_size('alumno')
+
+# 2022-02-10 22:53:08.142630
++select pg_size_pretty(pg_total_relation_size('alumno'))
+
+# 2022-02-12 00:53:11.650731
++\connect pl1
+
+# 2022-02-12 01:33:38.927817
++copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' ;
+
+# 2022-02-12 01:34:35.515648
++\connect pl1
+
+# 2022-02-12 01:35:17.114242
++copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' ;""
+
+# 2022-02-12 01:35:46.000922
++\copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' ;
+
+# 2022-02-12 01:41:20.118417
++select * from alumno limit 10;
+
+# 2022-02-12 01:50:54.995602
++select pg_relation_size('alumno');
+
+# 2022-02-12 01:51:52.377366
++select pg_size_pretty(pg_relation_size(('alumno');
+
+# 2022-02-12 01:52:02.346338
++select pg_size_pretty(pg_relation_size(('alumno'));
+
+# 2022-02-12 01:52:08.349343
++select pg_size_pretty(pg_relation_size(('alumno')));
+
+# 2022-02-15 15:33:07.086160
++SELECT count(*) FROM table_name;
+
+# 2022-02-15 15:33:26.459762
++\connect pl1
+
+# 2022-02-15 15:34:25.479876
++SELECT count(*) FROM alumno;
+
+# 2022-02-15 16:16:59.243370
++select avg(pg_column_size("carnet")) from "alumno"
+
+# 2022-02-15 16:17:41.096989
++select pg_size_pretty(avg(pg_column_size("carnet")) from "alumno")
+
+# 2022-02-15 16:20:39.066733
++select max(pg_column_size("carnet")) from "alumno"
+
+# 2022-02-15 16:20:52.505476
++select min(pg_column_size("carnet")) from "alumno"
+
+# 2022-02-15 16:21:42.465651
++select min(pg_column_size("nombre")) from "alumno"
+
+# 2022-02-15 16:21:54.472888
++select avg(pg_column_size("nombre")) from "alumno"
+
+# 2022-02-15 16:38:42.381286
++create extension pageinspect
+
+# 2022-02-15 16:40:12.464432
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('alumno',0))
+
+# 2022-02-15 16:42:59.628747
++select avg(pg_column_size("carnet")) from "alumno"
+
+# 2022-02-15 16:43:09.651215
++select avg(pg_column_size("nombre")) from "alumno"
+
+# 2022-02-15 16:43:39.196961
++select avg(pg_column_size("codigo_de_carrera")) from "alumno"
+
+# 2022-02-15 16:43:57.695878
++select avg(pg_column_size("edad")) from "alumno"
+
+# 2022-02-15 16:44:07.097011
++select avg(pg_column_size("puntuacion")) from "alumno"
+
+# 2022-02-15 16:46:05.958324
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('alumno',0))
+
+# 2022-02-15 16:47:51.836376
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('"alumno"',0))
+
+# 2022-02-15 16:54:47.667740
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('"alumno"',100))
+
+# 2022-02-15 16:54:54.452861
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('"alumno"',100000))
+
+# 2022-02-15 16:55:00.240444
++select count(*) as factor_bloque_real  from heap_page_items(get_raw_page('"alumno"',10000))
+
+# 2022-02-22 15:17:32.655899
++\connect pl1
+
+# 2022-02-22 15:18:22.335218
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:20:04.084322
++select * from alumno where carnet = '12345678'
+
+# 2022-02-22 15:20:17.214964
++select * from alumno where carnet = '24567891'
+
+# 2022-02-22 15:23:21.988087
++explain analyze select * from alumno where carnet = '24567891'
+
+# 2022-02-22 15:25:40.880970
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:25:58.333187
++explain analyze select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:27:19.109656
++\d alumno
+
+# 2022-02-22 15:27:26.920177
++\d pl1
+
+# 2022-02-22 15:31:07.047404
++explain (buffers true, analyze true, format text) select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:32:56.317857
++explain (buffers true, analyze true, format text) select * from alumno where carnet = '24567891'
+
+# 2022-02-22 15:40:33.205446
++pg_stat_rest();
+
+# 2022-02-22 15:40:39.173299
++pg_stat_reset();
+
+# 2022-02-22 15:40:53.112758
++select pg_stat_reset();
+
+# 2022-02-22 15:41:05.570821
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:42:15.185718
++select pg_statio_all_tables();
+
+# 2022-02-22 15:44:14.544980
++select * from pg_statio_all_tables();
+
+# 2022-02-22 15:44:18.093039
++select * from pg_statio_all_tables;
+
+# 2022-02-22 15:45:01.510061
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 15:45:44.469258
++select pg_stat_reset();
+
+# 2022-02-22 15:45:54.251883
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:46:06.678679
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 15:48:05.522042
++select from pg_stat_reset();
+
+# 2022-02-22 15:48:16.307863
++select * from pg_stat_reset();
+
+# 2022-02-22 15:48:27.270083
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:48:35.454515
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 15:49:03.088441
++select * from pg_stat_reset();
+
+# 2022-02-22 15:49:06.307088
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:49:13.780552
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 15:49:28.734889
++select * from pg_stat_reset();
+
+# 2022-02-22 15:49:43.638482
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 15:50:10.376192
++select * from pg_stat_activity;
+
+# 2022-02-22 15:50:53.088619
++select * from pg_stat_reset();
+
+# 2022-02-22 15:51:08.494167
++explain (buffers true, analyze true, format text) select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:58:00.196337
++select * from pg_stat_reset();
+
+# 2022-02-22 15:58:07.669762
++select * from alumno where carnet = '24567890'
+
+# 2022-02-22 15:58:21.463983
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 16:08:52.872393
++SELECT relname, relkind, reltuples, relpages
++FROM pg_class
++WHERE relname LIKE 'alumno';
+
+# 2022-02-22 16:09:49.766557
++SELECT relname, relkind, reltuples, relpages
++FROM pg_class
++WHERE relname = 'alumno'
+
+# 2022-02-22 16:15:48.745986
++select * from pg_stat_reset();
+
+# 2022-02-22 16:16:07.220932
++select * from alumno where puntuacion = '525';
+
+# 2022-02-22 16:16:37.993367
++select * from pg_stat_reset();
+
+# 2022-02-22 16:17:07.867338
++select count(*) from alumno where puntuacion = '525';
+
+# 2022-02-22 16:20:49.848280
++select * from pg_statio_all_tables where relname = 'alumno';
+
+# 2022-02-22 16:35:40.829522
++create table alumno2(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-02-22 16:37:09.883576
++INSERT INTO alumno2 SELECt
++FROM Items WHERE typeid=5 ORDER BY userid;
+
+# 2022-02-22 16:38:02.912097
++insert into alumno2 select * from alumno order by puntuacion;
+
+# 2022-02-22 16:43:02.946771
++select * from alumno 2
+
+# 2022-02-22 16:43:05.808513
++select * from alumno2
+
+# 2022-02-22 16:43:52.693503
++SELECT
+
+# 2022-02-22 16:44:15.750929
++select * from alumno2 limit 10
+
+# 2022-02-22 16:44:55.169021
++SELECT relname, relkind, reltuples, relpages
++FROM pg_class
++WHERE relname = 'alumno2'
+
+# 2022-02-22 16:56:11.995094
++drop table alumno2;
+
+# 2022-02-22 17:00:47.687408
++insert into alumno2 select * from alumno order by puntuacion;
+
+# 2022-02-22 17:01:04.801558
++create table alumno2(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-02-22 17:01:12.076991
++insert into alumno2 select * from alumno order by puntuacion;
+
+# 2022-02-22 17:10:03.235165
++select * from pg_stat_reset();
+
+# 2022-02-22 17:11:22.027596
++select * from alumno2 where carnet = '24567890'
+
+# 2022-02-22 17:12:53.977294
++select * from pg_statio_all_tables where relname = 'alumno2'
+
+# 2022-02-22 18:36:06.944258
++select count(puntu) distinct from alumno2 
+
+# 2022-02-22 18:36:16.656908
++select count(puntuacion) distinct from alumno2 
+
+# 2022-02-22 18:36:38.768637
++select count(puntuacion), distinct from alumno2 
+
+# 2022-02-22 18:37:06.344670
++select count(*), distinct puntuacion from alumno2 
+
+# 2022-02-22 18:37:13.578110
++select count(*) distinct puntuacion from alumno2 
+
+# 2022-02-22 18:38:00.185867
++select count(distinct puntuacion) from alumno2 
+
+# 2022-03-08 15:51:36.834465
++\connect pl1
+
+# 2022-03-08 15:52:28.889414
++delete from alumno where carnet in (select carnet from alumno order by random() limit 2000000
+
+# 2022-03-08 15:52:38.678383
++delete from alumno where carnet in (select carnet from alumno order by random() limit 2000000;
+
+# 2022-03-08 15:53:16.635549
++delete from 'alumno' where carnet in (select carnet from 'alumno' order by random() limit 2000000;
+
+# 2022-03-08 15:54:43.748620
++delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 2000000;
+
+# 2022-03-08 15:56:05.229489
++delete from "Alumno" where codigo in (select codigo from "Alumno" order by random() limit 2000000);
+
+# 2022-03-08 15:57:11.274048
++show * from pl1;
+
+# 2022-03-08 15:57:18.808820
++show pl1;
+
+# 2022-03-08 15:58:29.745340
++\d pl1
+
+# 2022-03-08 15:58:36.616487
++\d alumno
+
+# 2022-03-08 15:58:53.591807
++delete from "alumno" where codigo in (select codigo from "alumno" order by random() limit 2000000);
+
+# 2022-03-08 15:59:11.594170
++delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 2000000);
+
+# 2022-03-08 16:20:47.167385
++select count(carnet from alumno)
+
+# 2022-03-08 16:20:57.741759
++select count(carnet) from alumno
+
+# 2022-03-14 18:38:28.791395
++delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 2000000);
+
+# 2022-03-14 18:38:40.026524
++\connect pl1
+
+# 2022-03-14 18:38:43.808267
++delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 2000000);
+
+# 2022-03-14 18:59:36.624540
++delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 200)
+
+# 2022-03-14 19:03:07.501750
++explain delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 200)
+
+# 2022-03-14 19:03:47.630873
++explain delete from "alumno" where carnet in (select carnet from "alumno" order by random() limit 2000000)
+
+# 2022-03-14 19:07:01.019826
++select count(carnet) from alumno
+
+# 2022-03-14 19:08:25.711242
++truncate alumno
+
+# 2022-03-14 19:08:39.853904
++select count(carnet) from alumno
+
+# 2022-03-14 19:08:50.163217
++select * from alumno
+
+# 2022-03-14 19:10:34.413722
++\copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' ;
+
+# 2022-03-14 19:11:48.845526
++select count(carnet) from alumno
+
+# 2022-03-14 19:13:20.792065
++select count(*) from alumno;
+
+# 2022-03-14 19:16:02.706564
++delete from alumno where carnet in (select carnet from alumno order by random() limit 2000000;
+
+# 2022-03-14 19:16:20.363221
++delete from alumno where carnet in (select carnet from alumno order by random() limit 2000000);
+
+# 2022-03-14 19:29:40.310774
++select count(*) from alumno;
+
+# 2022-03-14 19:29:56.688328
++select count(carnet) from alumno;
+
+# 2022-03-14 19:39:27.651682
++
++vacuum full;
+
+# 2022-03-14 19:43:15.531304
++select pg_size_pretty(pg_total_relation_size('public.'alumno''));
+
+# 2022-03-14 19:43:31.896138
++select pg_size_pretty(pg_total_relation_size('public.alumno'));
+
+# 2022-03-14 19:45:21.113148
++select * from pgstattuple ('alumno',1);
+
+# 2022-03-14 19:49:24.757042
++CREATE EXTENSION pgstattuple;
+
+# 2022-03-14 19:49:31.844371
++select * from pgstattuple ('alumno',1);
+
+# 2022-03-14 19:49:54.774814
++select * from pgstattuple('alumno',1);
+
+# 2022-03-14 19:50:17.821604
++select * from pgstattuple('alumno');
+
+# 2022-03-14 19:52:31.888339
++create table alumno3(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-03-14 19:52:45.633454
++create index hash_carnet on  alumno using hash (info);
+
+# 2022-03-14 20:05:59.518886
++CREATE TABLE alumno3
++     (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++   PARTITION BY HASH (carnet)
++   PARTITIONS 30;
+
+# 2022-03-14 20:08:40.742697
++CREATE TABLE alumno3(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER) PARTITION BY HASH(carnet) PARTITIONS 30;
+
+# 2022-03-14 20:11:04.715621
++drop table alumno3;
+
+# 2022-03-14 20:11:08.959525
++CREATE TABLE alumno3(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER) PARTITION BY HASH(carnet) PARTITIONS 30;
+
+# 2022-03-14 20:12:32.880595
++CREATE TABLE departments_hash (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY HASH(carnet) PARTITIONS 30;
+
+# 2022-03-14 20:34:37.292259
++CREATE TABLE departments_hash (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY (HASH(carnet), range(30));
+
+# 2022-03-14 20:34:50.096670
++CREATE TABLE departments_hash (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY HASH(carnet) range(30);
+
+# 2022-03-14 20:34:54.886196
++CREATE TABLE departments_hash (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY HASH(carnet), range(30);
+
+# 2022-03-14 20:35:49.342980
++CREATE TABLE departments_hash (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY HASH(carnet);
+
+# 2022-03-14 20:36:03.203665
++drop table dep
+
+# 2022-03-14 20:36:15.056972
++drop table departments_hash
+
+# 2022-03-14 20:36:34.583660
++CREATE TABLE alumno3 (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY HASH(carnet);
+
+# 2022-03-14 20:36:51.968040
++CREATE TABLE alumno3 (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY range(30);
+
+# 2022-03-14 20:36:57.583416
++CREATE TABLE alumno3 (carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER)
++     PARTITION BY range 30;
+
+# 2022-03-14 20:42:13.628733
++create table public.'alumno3_0' partition of public.'alumno3'for values with (modulus 30, remainder 1);
+
+# 2022-03-14 20:42:36.253005
++create table public.alumno3_0 partition of public.'alumno3'for values with (modulus 30, remainder 1);
+
+# 2022-03-14 20:42:48.934112
++create table public.alumno3_0 partition of public.alumno3 for values with (modulus 30, remainder 1);
+
+# 2022-03-14 20:48:07.957136
++SHOW PARTITIONS alumno3;
+
+# 2022-03-14 20:48:17.658957
++SHOW PARTITIONS from alumno3;
+
+# 2022-03-14 20:51:22.711793
++select * from pg_partitioned_table
+
+# 2022-03-14 20:55:17.538203
++SELECT
++    nmsp_parent.nspname AS parent_schema,
++    parent.relname      AS parent,
++    nmsp_child.nspname  AS child_schema,
++    child.relname       AS child
++FROM pg_inherits
++    JOIN pg_class parent            ON pg_inherits.inhparent = parent.oid
++    JOIN pg_class child             ON pg_inherits.inhrelid   = child.oid
++    JOIN pg_namespace nmsp_parent   ON nmsp_parent.oid  = parent.relnamespace
++    JOIN pg_namespace nmsp_child    ON nmsp_child.oid   = child.relnamespace
++WHERE parent.relname='alumno3';
+
+# 2022-03-14 20:55:54.451246
++create table public.alumno3_1 partition of public.alumno3 for values with (modulus 30, remainder 1);
+
+# 2022-03-14 20:57:11.518875
++drop table alumno3_0
+
+# 2022-03-14 20:57:17.344236
++SELECT
++    nmsp_parent.nspname AS parent_schema,
++    parent.relname      AS parent,
++    nmsp_child.nspname  AS child_schema,
++    child.relname       AS child
++FROM pg_inherits
++    JOIN pg_class parent            ON pg_inherits.inhparent = parent.oid
++    JOIN pg_class child             ON pg_inherits.inhrelid   = child.oid
++    JOIN pg_namespace nmsp_parent   ON nmsp_parent.oid  = parent.relnamespace
++    JOIN pg_namespace nmsp_child    ON nmsp_child.oid   = child.relnamespace
++WHERE parent.relname='alumno3';
+
+# 2022-03-14 20:57:53.904128
++create table public.alumno3_0 partition of public.alumno3 for values with (modulus 30, remainder 0);
+
+# 2022-03-14 20:58:08.163909
++create table public.alumno3_1 partition of public.alumno3 for values with (modulus 30, remainder 1);
+
+# 2022-03-14 20:58:21.456770
++create table public.alumno3_2 partition of public.alumno3 for values with (modulus 30, remainder 2;
+
+# 2022-03-14 20:58:27.610604
++create table public.alumno3_2 partition of public.alumno3 for values with (modulus 30, remainder 2);
+
+# 2022-03-14 20:58:40.356728
++create table public.alumno3_3 partition of public.alumno3 for values with (modulus 30, remainder 3);
+
+# 2022-03-14 20:58:52.785067
++create table public.alumno3_4 partition of public.alumno3 for values with (modulus 30, remainder 4);
+
+# 2022-03-14 20:59:12.036463
++create table public.alumno3_5 partition of public.alumno3 for values with (modulus 30, remainder 5);
+
+# 2022-03-14 20:59:25.263423
++create table public.alumno3_6 partition of public.alumno3 for values with (modulus 30, remainder 6);
+
+# 2022-03-14 20:59:39.021661
++create table public.alumno3_7 partition of public.alumno3 for values with (modulus 30, remainder 7);
+
+# 2022-03-14 20:59:47.884511
++create table public.alumno3_8 partition of public.alumno3 for values with (modulus 30, remainder 8);
+
+# 2022-03-14 21:00:06.990800
++create table public.alumno3_9 partition of public.alumno3 for values with (modulus 30, remainder 9);
+
+# 2022-03-14 21:00:21.914368
++create table public.alumno3_10 partition of public.alumno3 for values with (modulus 30, remainder 10);
+
+# 2022-03-14 21:00:37.092500
++create table public.alumno3_11 partition of public.alumno3 for values with (modulus 30, remainder 11);
+
+# 2022-03-14 21:00:52.426154
++create table public.alumno3_12 partition of public.alumno3 for values with (modulus 30, remainder 12);
+
+# 2022-03-14 21:01:11.143254
++create table public.alumno3_13 partition of public.alumno3 for values with (modulus 30, remainder 13);
+
+# 2022-03-14 21:01:23.399293
++create table public.alumno3_14 partition of public.alumno3 for values with (modulus 30, remainder 14);
+
+# 2022-03-14 21:01:35.118267
++create table public.alumno3_15 partition of public.alumno3 for values with (modulus 30, remainder 15);
+
+# 2022-03-14 21:01:45.513773
++create table public.alumno3_16 partition of public.alumno3 for values with (modulus 30, remainder 16);
+
+# 2022-03-14 21:01:57.164998
++create table public.alumno3_17 partition of public.alumno3 for values with (modulus 30, remainder 17);
+
+# 2022-03-14 21:02:07.771027
++create table public.alumno3_18 partition of public.alumno3 for values with (modulus 30, remainder 18);
+
+# 2022-03-14 21:02:19.240455
++create table public.alumno3_19 partition of public.alumno3 for values with (modulus 30, remainder 19);
+
+# 2022-03-14 21:02:38.994232
++create table public.alumno3_20 partition of public.alumno3 for values with (modulus 30, remainder 20);
+
+# 2022-03-14 21:02:55.007828
++create table public.alumno3_21 partition of public.alumno3 for values with (modulus 30, remainder 21);
+
+# 2022-03-14 21:03:05.767378
++create table public.alumno3_22 partition of public.alumno3 for values with (modulus 30, remainder 22);
+
+# 2022-03-14 21:03:17.328344
++create table public.alumno3_23 partition of public.alumno3 for values with (modulus 30, remainder 23);
+
+# 2022-03-14 21:03:26.608273
++create table public.alumno3_24 partition of public.alumno3 for values with (modulus 30, remainder 24);
+
+# 2022-03-14 21:03:37.521376
++create table public.alumno3_25 partition of public.alumno3 for values with (modulus 30, remainder 25);
+
+# 2022-03-14 21:03:47.352206
++create table public.alumno3_26 partition of public.alumno3 for values with (modulus 30, remainder 26);
+
+# 2022-03-14 21:03:57.755815
++create table public.alumno3_27 partition of public.alumno3 for values with (modulus 30, remainder 27);
+
+# 2022-03-14 21:04:10.502586
++create table public.alumno3_28 partition of public.alumno3 for values with (modulus 30, remainder 28);
+
+# 2022-03-14 21:04:24.681664
++create table public.alumno3_29 partition of public.alumno3 for values with (modulus 30, remainder 29);
+
+# 2022-03-14 21:05:51.319000
++SELECT
++    nmsp_parent.nspname AS parent_schema,
++    parent.relname      AS parent,
++    nmsp_child.nspname  AS child_schema,
++    child.relname       AS child
++FROM pg_inherits
++    JOIN pg_class parent            ON pg_inherits.inhparent = parent.oid
++    JOIN pg_class child             ON pg_inherits.inhrelid   = child.oid
++    JOIN pg_namespace nmsp_parent   ON nmsp_parent.oid  = parent.relnamespace
++    JOIN pg_namespace nmsp_child    ON nmsp_child.oid   = child.relnamespace
++WHERE parent.relname='alumno3';
+
+# 2022-03-14 21:06:20.775865
++select * from pg_partitioned_table
+
+# 2022-03-14 21:09:23.805623
++\copy public.alumno3 (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' 
+
+# 2022-03-14 21:20:24.655113
++select * from pgstattuple('alumno3');
+
+# 2022-03-14 21:20:48.020474
++select * from pg_partitioned_table('alumno3')
+
+# 2022-03-14 21:21:01.875178
++select * from pg_partitioned_table
+
+# 2022-03-14 21:21:15.198993
++select * from pgstattuple
+
+# 2022-03-14 21:21:27.207291
++select * from pgstattuple('alumno3');
+
+# 2022-03-14 21:22:52.608386
++select * from pg_size_pretty(pg_total_relation_size('alumno3'))
+
+# 2022-03-14 21:22:59.782231
++select * from pg_size_pretty(pg_total_relation_size('alumno3_0'))
+
+# 2022-03-14 21:23:17.194495
++ 
+
+# 2022-03-14 21:24:59.440151
++:
+
+# 2022-03-14 21:28:13.011300
++select * from heap_page_items(get_raw_page('alumno3_0'))
+
+# 2022-03-14 21:28:21.432124
++select * from heap_page_items(get_raw_page('alumno3_0', 0))
+
+# 2022-03-14 21:28:44.686398
++select count(*) from heap_page_items(get_raw_page('alumno3_0', 0))
+
+# 2022-03-14 21:32:54.237308
++select count(*) from alumno3_0
+
+# 2022-03-14 21:33:00.979028
++select count(*) from alumno3_5
+
+# 2022-03-14 21:33:07.576807
++select count(*) from alumno3_15
+
+# 2022-03-14 21:33:13.851172
++select count(*) from alumno3_24
+
+# 2022-03-14 21:33:23.058050
++select count(*) from alumno3_29
+
+# 2022-03-14 21:39:25.386449
++select count(*) from alumno3_0
+
+# 2022-03-14 21:39:28.876995
++select count(*) from alumno3
+
+# 2022-03-15 15:11:09.634542
++\c pl1
+
+# 2022-03-15 15:12:03.492640
++select pg_stat_reset();
+
+# 2022-03-15 15:12:52.813310
++select * from alumno3 where carnet = '24567890';
+
+# 2022-03-15 15:13:20.793014
++select * from pg_statio_all_tables where relname = 'alumno3'; 
+
+# 2022-03-15 15:13:59.032953
++select * from pg_statio_all_tables where relname = 'alumno3_0'; 
+
+# 2022-03-15 15:14:14.666671
++select * from pg_statio_all_tables where relname = 'alumno3_1'; 
+
+# 2022-03-15 15:17:38.362175
++select pg_size_pretty(pg_total_relation_size('public.alumno'));
+
+# 2022-03-15 15:17:43.444768
++select pg_size_pretty(pg_total_relation_size('alumno'));
+
+# 2022-03-15 15:17:54.051115
++select pg_size_pretty(pg_relation_size('alumno'));
+
+# 2022-03-15 15:18:31.568131
++select pg_stat_reset();
+
+# 2022-03-15 15:18:38.940928
++select * from alumno3 where carnet = '24567890';
+
+# 2022-03-15 15:18:48.303330
++select * from pg_statio_all_tables; 
+
+# 2022-03-15 15:19:24.240242
++select pg_stat_reset();
+
+# 2022-03-15 15:19:29.545861
++select * from alumno3 where carnet = '24567890';
+
+# 2022-03-15 15:21:31.455402
++select pg_stat_reset();
+
+# 2022-03-15 15:21:38.848114
++select * from alumno where carnet = '24567890';
+
+# 2022-03-15 15:22:08.313038
++select * from pg_statio_all_tables where relname = 'alumno'; 
+
+# 2022-03-15 15:22:25.968005
++select pg_stat_reset();
+
+# 2022-03-15 15:22:34.848185
++select * from alumno3 where carnet = '24567890';
+
+# 2022-03-15 15:22:56.189936
++select * from pg_statio_all_tables order by heap_blks_read; 
+
+# 2022-03-15 15:25:05.649203
++select pg_stat_reset();
+
+# 2022-03-15 15:26:02.809786
++select count(*) from alumno where puntuacion ='525';
+
+# 2022-03-15 15:26:16.368101
++select * from pg_statio_all_tables where relname = 'alumno'; 
+
+# 2022-03-15 15:27:25.407234
++select * from alumno2 limit 15;
+
+# 2022-03-15 15:27:46.214189
++select pg_stat_reset();
+
+# 2022-03-15 15:28:02.435249
++select * from alumno2 where carnet = '24567890';
+
+# 2022-03-15 15:29:43.358631
++drop table alumno2
+
+# 2022-03-15 15:30:13.059076
++create table alumno2(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-03-15 15:30:27.598933
++insert into alumno2 select * from alumno order by puntuacion;
+
+# 2022-03-15 15:36:11.589680
++select pg_stat_reset();
+
+# 2022-03-15 15:37:16.919953
++explain (analyze, buffers) select * from alumno3 where carnet = '24567890';
+
+# 2022-03-15 15:45:51.093788
++count (distinct) puntuacion from alumno2
+
+# 2022-03-15 15:46:15.536972
++count (distinct puntuacion) from alumno2
+
+# 2022-03-15 15:46:21.897513
++count (puntuacion) from alumno2
+
+# 2022-03-15 15:47:02.533358
++SELECT COUNT(DISTINCT puntuacion) FROM alumno2;
+
+# 2022-03-15 16:01:13.946139
++select pg_relation_filepath(oid), relpages from pg_class where relname = 'alumno'
+
+# 2022-03-15 16:01:29.447767
++select pg_relation_filepath(oid), relpages from pg_class where relname = 'alumno2'
+
+# 2022-03-15 16:01:34.186510
++select pg_relation_filepath(oid), relpages from pg_class where relname = 'alumno3'
+
+# 2022-03-15 16:02:33.424168
++drop table alumno2
+
+# 2022-03-15 16:04:08.179635
++create table alumno2(carnet INTEGER, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-03-15 16:04:18.526001
++\copy public.alumno2 (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';' ;
+
+# 2022-03-15 16:12:01.120185
++explain (analyze, buffers)  select count(*) from alumno where puntuacion = '525'; 
+
+# 2022-03-15 16:18:27.615195
++drop table alumno
+
+# 2022-03-15 16:18:31.416582
++drop table alumno2
+
+# 2022-03-15 16:24:45.003247
++create table alumno(carnet INTEGER PRIMARY KEY, nombre TEXT, codigo_de_carrera INTEGER, edad INTEGER, puntuacion INTEGER);
+
+# 2022-03-15 16:39:05.813164
++select pg_size_pretty(pg_relation_size(('alumno')))
+
+# 2022-03-15 16:40:45.127210
++select * from pg_statio_all_tables where relname = 'alumno'; 
+
+# 2022-03-15 16:41:38.737682
++select * from pg_statio_all_tables where relid = 25172 
+
+# 2022-03-15 16:41:46.055937
++select * from pg_statio_all_tables
+
+# 2022-03-15 16:48:49.637568
++\copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';';
+
+# 2022-03-15 17:25:38.843648
++\c pl1
+
+# 2022-03-15 17:26:07.114309
++select * from pg_filenode_relation()
+
+# 2022-03-15 17:26:20.847762
++select * from pg_filenode_relation('alumno')
+
+# 2022-03-15 17:28:16.701330
++select * from pg_relation_filenode ( relation regclass )
+
+# 2022-03-15 17:28:29.563184
++select * from pg_relation_filenode ('alumno' )
+
+# 2022-03-15 17:29:12.841055
++select * from pg_filenoderelation (25172)
+
+# 2022-03-15 17:31:08.877272
++select * from pg_ls_logdir() 
+
+# 2022-03-15 17:32:17.557606
++select * from pg_ls_dir()
+
+# 2022-03-15 17:32:57.089293
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\13753')
+
+# 2022-03-15 17:33:27.670651
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\')
+
+# 2022-03-15 17:45:21.240374
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\16394')
+
+# 2022-03-15 17:47:30.324263
++select * from pg_relation_filenode() 
+
+# 2022-03-15 17:47:39.020214
++select * from pg_relation_filenode('alumno') 
+
+# 2022-03-15 17:48:14.152608
++select * from pg_relation_filepath(25172);
+
+# 2022-03-15 17:48:50.814584
++select * from pg_relation_filenode('alumno.carnet') 
+
+# 2022-03-15 17:49:01.558651
++select * from pg_relation_filenode('carnet') 
+
+# 2022-03-15 17:49:55.637034
++select * from pg_relation_filenode('alumno_pkey') 
+
+# 2022-03-15 17:50:48.205356
++select * from pg_relation_filenode('alumno_pkey'), pg_relation_filepath('alumno')
+
+# 2022-03-15 17:51:40.949676
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\16394\25172')
+
+# 2022-03-15 17:51:46.774567
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\16394\')
+
+# 2022-03-15 17:52:33.710080
++select * from pg_ls_dir('C:\Program Files\PostgreSQL\14\data\base\')
+
+# 2022-03-15 17:56:03.347455
++select * from alumno limit 20
+
+# 2022-03-15 17:56:55.889657
++\copy public.alumno (carnet, nombre, codigo_de_carrera, edad, puntuacion) FROM 'C:/Users/albac/OneDrive/BDA/datos_alumno.txt' DELIMITER ';'
+
+# 2022-03-15 18:22:31.871284
++create index b_carnet on alumno(carnet)
+
+# 2022-03-15 18:24:48.178755
++select * from pg_relation_filenode('b_carnet'), pg_relation_filepath('b_carnet')
+
+# 2022-03-15 18:25:03.486837
++select * from pg_relation_filepath('b_carnet')
+
+# 2022-03-15 18:29:38.563374
++select * from pg_size_pretty(pg_total_relation_size('b_carnet');
+
+# 2022-03-15 18:29:44.584596
++select * from pg_size_pretty(pg_total_relation_size('b_carnet'));
+
+# 2022-03-15 18:31:14.770608
++select * from pgstatindex('carnet_b')
+
+# 2022-03-15 18:31:30.544102
++select * from pgstatindex('alumno')
+
+# 2022-03-15 18:31:48.390126
++select * from pgstatindex('b_carnet')
+
+# 2022-03-15 18:33:03.153895
++select tree_level, root_block_no, internal_pages, leaf_pages from pgstatindex('b_carnet')
+
+# 2022-03-16 20:23:49.173650
++\c pl1
+
+# 2022-03-16 20:48:33.161786
++select count(*) from heap_page_items(get_raw_page('b_carnet', 0))
+
+# 2022-03-16 20:49:05.025876
++select count(*) from heap_page_items(get_raw_page('b_carnet', 290))
+
+# 2022-03-16 20:51:16.964464
++select tree_level, internal_pages, leaf_pages,root_block_no  from pgstatindex('b_carnet'); 
+
+# 2022-03-16 20:54:17.711022
++select count(*) from heap_page_items(get_raw_page('b_carnet', 135))
+
+# 2022-03-16 20:54:36.699671
++select count(*) from heap_page_items(get_raw_page('b_carnet', 367))
+
+# 2022-03-16 20:54:57.552452
++select count(*) from heap_page_items(get_raw_page('b_carnet', 9997))
+
+# 2022-03-16 21:17:20.995528
++select count(*) from heap_page_items(get_raw_page('b_carnet', 136))
+
+# 2022-03-16 21:17:57.570061
++select count(*) from heap_page_items(get_raw_page('b_carnet', 38252))
+
+# 2022-03-16 21:18:05.862649
++select count(*) from heap_page_items(get_raw_page('b_carnet', 38253))
+
+# 2022-03-16 21:59:19.816254
++select * from bt_page_items()
+
+# 2022-03-16 21:59:36.918231
++select * from bt_page_stats()
+
+# 2022-03-16 22:01:36.875734
++bt_page_stats('alumno',0)
+
+# 2022-03-16 22:02:17.574587
++select * from bt_page_stats('alumno',0)
+
+# 2022-03-16 22:02:27.277689
++select * from bt_page_stats('b_carnet',0)
+
+# 2022-03-16 22:02:36.296377
++select * from bt_page_stats('b_carnet',1)
+
+# 2022-03-16 22:03:04.266489
++select * from bt_page_stats('b_carnet',367)
+
+# 2022-03-16 22:05:17.517086
++SELECT * FROM heap_page_items(get_raw_page('pg_class', 0));
+
+# 2022-03-16 22:06:24.011005
++select * from bt_page_stats('b_carnet',1)
+
+# 2022-03-16 22:23:03.850153
++select * from bt_page_stats('b_carnet',8000)
+
+# 2022-03-16 22:23:11.285132
++select * from bt_page_stats('b_carnet',40000)
+
+# 2022-03-16 22:23:16.210773
++select * from bt_page_stats('b_carnet',40)
+
+# 2022-03-17 13:29:39.950214
++select pg_get_functiondef(oid) as hex_to_int from' C:\Users\albac\OneDrive\BDA\hex_to_int.sql'
+
+# 2022-03-17 13:29:53.979094
++select pg_get_functiondef(oid) as hex_to_int from 'C:\Users\albac\OneDrive\BDA\hex_to_int.sql'
+
+# 2022-03-17 13:35:44.522075
++\i C:\Users\albac\OneDrive\BDA\hex_to_int.sql
+
+# 2022-03-17 13:39:06.585683
++select ctid, hex_to_int(data) as xxx, from bt_page_items('index_carnet', 290), where hex_to_int(data) <= 26935691;
+
+# 2022-03-17 13:39:46.636144
++select ctid, hex_to_int(data) as bloques from bt_page_items('index_carnet', 290), where hex_to_int(data) <= 26935691;
+
+# 2022-03-17 13:39:55.665796
++select ctid, hex_to_int(data) as bloques from bt_page_items('index_carnet', 290) where hex_to_int(data) <= 26935691;
+
+# 2022-03-17 13:40:14.388496
++select ctid, hex_to_int(data) as bloques from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691;
+
+# 2022-03-17 13:41:30.196875
++\c pl1
+
+# 2022-03-17 13:41:37.896313
++\i C:\Users\albac\OneDrive\BDA\hex_to_int.sql
+
+# 2022-03-17 13:41:44.533047
++select ctid, hex_to_int(data) as bloques from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691;
+
+# 2022-03-17 13:44:35.485387
++select ctid, hex_to_int(data) as c from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by b asc
+
+# 2022-03-17 13:46:15.729947
++select ctid, hex_to_int(data) as c from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by data asc
+
+# 2022-03-17 13:46:50.727596
++select ctid, hex_to_int(data) as c from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by data hex_to_int(data) asc
+
+# 2022-03-17 13:46:59.289791
++select ctid, hex_to_int(data) as c from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by hex_to_int(data) asc
+
+# 2022-03-17 13:47:44.276054
++select ctid, hex_to_int(data) as c from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by hex_to_int(data) desc
+
+# 2022-03-17 13:52:55.490027
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 290) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 13:56:45.878444
++select ctid, * from alumno where carnet = 26928496
+
+# 2022-03-17 13:57:08.319405
++select  * from alumno where carnet = 26928496
+
+# 2022-03-17 13:57:42.075594
++select ctid, * from alumno where carnet = 26928496
+
+# 2022-03-17 14:04:51.023882
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 14:06:11.362696
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38212) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 14:07:15.031074
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 24381) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 14:07:50.557673
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 26774) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 14:14:55.420429
++select  * from alumno where carnet = 26935691
+
+# 2022-03-17 14:15:05.179700
++select ctid, * from alumno where carnet = 26935691
+
+# 2022-03-17 14:19:47.135101
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 26935691 order by item desc
+
+# 2022-03-17 14:20:46.322116
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 2691 order by item desc
+
+# 2022-03-17 14:21:00.954696
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 000000001 order by item desc
+
+# 2022-03-17 14:21:10.184184
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 00000001 order by item desc
+
+# 2022-03-17 14:21:21.130075
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 10000000 order by item desc
+
+# 2022-03-17 14:21:37.252427
++select ctid, hex_to_int(data) as item from bt_page_items('b_carnet', 38195) where hex_to_int(data) <= 11111111 order by item desc
+
+# 2022-03-17 14:25:13.283244
++create index b_puntuacion on alumno(puntuacion);
+
+# 2022-03-17 14:26:30.513237
++select * from pg_relation_filepath('b_puntuacion'); la cual es base/16394/25179.
+
+# 2022-03-17 14:26:40.237884
++select * from pg_relation_filepath('b_puntuacion');
+
+# 2022-03-17 14:27:35.688240
++ select * from pg_size_pretty(pg_total_relation_size('b_puntuacion'));
+
+# 2022-03-17 14:28:14.198600
++select tree_level, internal_pages, leaf_pages, root_block_no from pgstatindex('b_puntuacion');
+
+# 2022-03-17 14:31:25.316973
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 290));
+
+# 2022-03-17 14:31:46.745229
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 215));
+
+# 2022-03-17 14:32:14.503396
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 0));
+
+# 2022-03-17 14:32:57.221386
++select count(*) from heap_page_items(get_raw_page('b_carnet', 290));
+
+# 2022-03-17 14:33:08.596041
++select count(*) from heap_page_items(get_raw_page('b_carnet', 215));
+
+# 2022-03-17 14:33:15.428416
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 215));
+
+# 2022-03-17 14:33:21.231809
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 16));
+
+# 2022-03-17 14:33:27.276995
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 1));
+
+# 2022-03-17 14:33:30.631624
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 0));
+
+# 2022-03-17 14:33:37.327495
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 12));
+
+# 2022-03-17 14:36:00.834455
++select * from bt_page_stats(b_puntuacion, 215)
+
+# 2022-03-17 14:36:11.339040
++select * from bt_page_stats('b_puntuacion', 215)
+
+# 2022-03-17 14:36:57.352491
++select * from bt_page_stats('b_carnet', 290)
+
+# 2022-03-17 14:39:06.637156
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 16));
+
+# 2022-03-17 14:41:50.723814
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 0));
+
+# 2022-03-17 14:41:57.216141
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 1));
+
+# 2022-03-17 14:42:03.108631
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 2));
+
+# 2022-03-17 14:43:08.663081
++\c pl1
+
+# 2022-03-17 14:43:14.574941
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 12));
+
+# 2022-03-17 14:47:56.430898
++select * fro bt_page_stats('b_puntuacion',1);
+
+# 2022-03-17 14:48:03.900301
++select * from bt_page_stats('b_puntuacion',1);
+
+# 2022-03-17 14:48:43.283211
++select blkno,free_size from bt_page_stats('b_puntuacion',2);
+
+# 2022-03-17 14:48:56.577025
++select blkno,free_size from bt_page_stats('b_puntuacion',290);
+
+# 2022-03-17 14:49:05.777318
++select blkno,free_size from bt_page_stats('b_puntuacion',38000);
+
+# 2022-03-17 14:49:14.643949
++select blkno,free_size from bt_page_stats('b_puntuacion',3822);
+
+# 2022-03-18 13:42:36.676282
++\c pl1
+
+# 2022-03-18 13:42:58.954599
++select blkno,free_size from bt_page_stats('b_puntuacion',290);
+
+# 2022-03-18 13:44:31.909068
++select ctid, hex_to_int(data) as item from bt_page_items('b_puntuacion', 215) where hex_to_int(data) <= 456 order by item desc
+
+# 2022-03-18 13:45:10.975912
++select ctid, hex_to_int(data) as item from bt_page_items('b_puntuacion', 4097) where hex_to_int(data) <= 456 order by item desc
+
+# 2022-03-18 13:45:22.166389
++select ctid, hex_to_int(data) as item from bt_page_items('b_puntuacion', 424) where hex_to_int(data) <= 456 order by item desc
+
+# 2022-03-18 13:48:00.891596
++select ctid, hex_to_int(data) as item from bt_page_items('b_puntuacion', 566) where hex_to_int(data) <= 456 order by item desc
+
+# 2022-03-18 13:48:15.316005
++select ctid, hex_to_int(data) as item from bt_page_items('b_puntuacion', 16) where hex_to_int(data) <= 456 order by item desc
+
+# 2022-03-18 13:51:19.194728
++5+1
+
+# 2022-03-18 13:53:56.841481
++create index hash_carnet on alumno using hash(carnet);
+
+# 2022-03-18 15:17:19.861248
++\c pl1
+
+# 2022-03-18 15:18:16.568500
++select * from pgstathashindex('hash_carnet)
+
+# 2022-03-18 15:18:41.481087
++select * from pgstathashindex('hash_carnet')
+
+# 2022-03-18 15:20:11.950990
++select * from pg_relation_filepath('hash_carnet');
+
+# 2022-03-18 15:25:19.794136
++
++select * from hash_page_stats(get_raw_page('hash_carnet',1));
+
+# 2022-03-18 15:30:23.107612
++select ntuples from hash_metapage_info(get_raw_page('hash_carnet',0));
+
+# 2022-03-18 15:30:33.259344
++select ntuples from hash_metapage_info(get_raw_page('hash_carnet',5));
+
+# 2022-03-18 15:31:36.166522
++
++select * from hash_page_stats(get_raw_page('hash_carnet',4294967295));
+
+# 2022-03-18 15:31:41.475234
++
++select * from hash_page_stats(get_raw_page('hash_carnet',4294));
+
+# 2022-03-18 15:32:07.857257
++
++select * from hash_page_stats(get_raw_page('hash_carnet',49152));
+
+# 2022-03-18 15:34:22.027816
++
++select * from hash_page_stats(get_raw_page('hash_carnet',49153));
+
+# 2022-03-18 15:38:34.147621
++select * from pg_size_pretty(pg_total_relation_size('hash_carnet'));
+
+# 2022-03-18 15:43:24.053245
++select count(*) from heap_page_items(get_raw_page('hash_carnet', 215));
+
+# 2022-03-18 15:43:34.300018
++select count(*) from heap_page_items(get_raw_page('hash_carnet', 0));
+
+# 2022-03-18 15:43:40.032265
++select count(*) from heap_page_items(get_raw_page('hash_carnet', 1136));
+
+# 2022-03-18 15:44:40.808889
++select * from heap_page_items(get_raw_page('hash_carnet', 0));
+
+# 2022-03-18 15:45:52.608232
++select  from lpheap_page_items(get_raw_page('hash_carnet', 0));
+
+# 2022-03-18 15:46:12.359785
++select t_ctid from heap_page_items(get_raw_page('hash_carnet', 0));
+
+# 2022-03-18 15:46:50.647314
++SELECT * FROM hash_bitmap_info('hash_carnet', 2052);
+
+# 2022-03-18 15:46:56.039966
++SELECT * FROM hash_bitmap_info('hash_carnet', 0);
+
+# 2022-03-18 15:47:00.122140
++SELECT * FROM hash_bitmap_info('hash_carnet', 1);
+
+# 2022-03-18 15:47:41.633127
++SELECT * FROM hash_bitmap_info('hash_carnet', 49151 );
+
+# 2022-03-18 15:52:23.950414
++select count(*) from heap_page_items(get_raw_page('hash_carnet', 215));
+
+# 2022-03-18 15:52:52.435614
++select * from pg_statio_all_indexes();
+
+# 2022-03-18 15:53:10.373825
++select * from pg_statio_all_indexes('hash_carnet');
+
+# 2022-03-18 15:53:14.304065
++select * from pg_statio_all_indexes('hash_carnet',0);
+
+# 2022-03-18 15:54:16.855145
++select * from pg_statio_all_indexes where indexrelname = 'hash_carnet'
+
+# 2022-03-18 15:55:30.557571
++select idx_blks_read from pg_statio_all_indexes where indexrelname = 'hash_carnet'
+
+# 2022-03-18 15:57:49.543871
++pg_stat_reset();
+
+# 2022-03-18 15:58:04.219260
++select * from pg_stat_reset();
+
+# 2022-03-18 15:58:08.193992
++select idx_blks_read from pg_statio_all_indexes where indexrelname = 'hash_carnet'
+
+# 2022-03-18 15:58:16.677313
++select * from pg_stat_reset();
+
+# 2022-03-18 15:58:24.763154
++select * from pg_statio_all_indexes where indexrelname = 'hash_carnet'
+
+# 2022-03-18 16:03:45.768833
++select * from pgstathashindex('hash_carnet')
+
+# 2022-03-18 16:13:23.399159
++with recursive t(n) as ( values(1) union all sekect n+1 from t where n<xxxx)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-18 16:13:45.142606
++with recursive t(n) as ( values(1) union all select n+1 from t where n<xxxx)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-18 16:14:53.579224
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-18 16:15:45.486948
++select hash_page_stats(get_raw_page('hash_carnet', 0));
+
+# 2022-03-18 16:17:14.660592
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t order by asc
+
+# 2022-03-18 16:17:59.303777
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t order by hasho_nextblkno asc
+
+# 2022-03-18 16:18:17.980661
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t order by hash_page_stats.hasho_nextblkno asc
+
+# 2022-03-18 16:20:31.356820
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-18 16:29:30.864273
++select * from carnet limit 10
+
+# 2022-03-18 16:29:41.814261
++select carnet from alumno limit 10
+
+# 2022-03-20 18:37:07.302136
++\c pl1
+
+# 2022-03-20 18:37:24.983406
++select * from carnet limit 10
+
+# 2022-03-20 18:37:32.397617
++select carnet from alumno limit 10
+
+# 2022-03-20 18:42:58.200108
++create index b_puntuacion on alumno(puntuacion);
+
+# 2022-03-20 18:43:28.961684
++select * from pgstatindex('b_puntuacion')
+
+# 2022-03-20 18:46:04.037754
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 215));
+
+# 2022-03-20 18:46:14.861389
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 0));
+
+# 2022-03-20 18:46:18.447304
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 1));
+
+# 2022-03-20 18:52:26.800205
++drop INDEX b_carnet
+
+# 2022-03-20 18:52:31.821297
++select count(*) from heap_page_items(get_raw_page('b_puntuacion', 1));
+
+# 2022-03-20 18:52:51.851433
++drop INDEX hash_puntuacion
+
+# 2022-03-20 18:54:42.265572
++create index hash_puntuacion on alumno using hash(puntuacion)
+
+# 2022-03-20 18:58:29.598597
++select * from pg_relation_filepath('hash_puntuacion');
+
+# 2022-03-20 18:58:58.526577
++select * from pg_size_pretty(pg_total_relation_size('hash_puntuacion'));
+
+# 2022-03-20 18:59:33.392560
++select * from pgstathashindex('hash_puntuacion')
+
+# 2022-03-20 19:01:13.037324
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-20 19:01:37.815835
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_puntuacion', n)) from t;
+
+# 2022-03-20 19:04:36.957628
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_carnet', n)) from t;
+
+# 2022-03-20 19:09:01.483704
++select count(distinct puntuacion) from alumno
+
+# 2022-03-20 19:10:50.615640
++select * from pgstathashindex('hash_puntuacion')
+
+# 2022-03-20 19:11:47.669695
++with recursive t(n) as ( values(1) union all select n+1 from t where n<49152)
++select hash_page_stats(get_raw_page('hash_puntuacion', n)) from t;
